@@ -1,0 +1,17 @@
+.cards {
+    display: grid;
+    grid-template-columns: repeat(6, 80px); /* Crée 6 colonnes de 80px chacune */
+    grid-template-rows: repeat(6, 80px); /* Crée 6 rangées de 80px chacune */
+    gap: 20px; /* Aucun espace entre les cubes */
+    
+}
+
+.cards li {
+    background-color: gray;
+    list-style-type: none;
+}
+.cards__projects img {
+    width: 80px;
+    height: 80px;
+    
+}

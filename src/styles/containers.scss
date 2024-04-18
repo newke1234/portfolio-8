@@ -1,0 +1,22 @@
+.container-main {
+    display: flex;
+    align-items: center; /* Alignement vertical */
+    justify-content: center; /* Alignement horizontal, si nécessaire */
+    height: 100vh; /* Hauteur du conteneur */
+    background-color: green;
+}
+
+.container-description {
+    background-color: red;
+    width: 100%;
+}
+
+.container-cards {
+    background-color: yellow;
+    width: 580px;
+}
+
+.container-contact {
+    background-color: orange;
+    width: 100%;
+}
