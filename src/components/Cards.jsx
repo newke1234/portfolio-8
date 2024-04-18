@@ -11,10 +11,13 @@ function Cards() {
             <li key={id} className="cards__projects">
                 {card.type === 'project' && (
                 <img
-                  className="cards__project__image"
+                  // className="cards__project__image"
                   src={card.cover}
                   alt={card.title}
                 />
+                )}
+                {card.type === 'letter' && (
+                <p className="cards__letter">{card.title}</p>
                 )}
                 {/* <div className="cards__project__gradient"></div> */}
                 {/* <div className="cards__project__title">{card.title}</div> */}
