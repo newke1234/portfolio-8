@@ -1,19 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0px;
 }
 
+// .jersey-10-regular {
+//   font-family: "Jersey 10", sans-serif;
+//   font-weight: 400;
+//   font-style: normal;
+// }
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.jersey-36{
+  font-size: 36;
+}
+
+.jersey-19{
+  font-size: 19;
 }
