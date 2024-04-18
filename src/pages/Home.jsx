@@ -1,16 +1,18 @@
 import Cards from '../components/Cards';
+import '../styles/containers.scss';
 
 function Home() {
     return (
-        <div>
-        <div className='container-description'>
-            <p>test</p>
-        </div>
         <div className='container-main'>
-            <Cards />
-        </div>
-        <div className='container-contact'>
-        </div>
+            <div className='container-description'>
+                <p>test</p>
+            </div>
+            <div className='container-cards'>
+                <Cards />
+            </div>
+            <div className='container-contact'>
+                <p>test</p>
+            </div>
         </div>
     )
 }
