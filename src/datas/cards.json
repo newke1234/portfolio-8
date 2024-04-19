@@ -2,9 +2,9 @@
     {
         "id": "0",
         "type": "project",
-        "title": "Projet OpenClassrooms : BOOKI",
+        "title": "BOOKI",
         "subtitle": "Création de la page d'accueil d'une agence de voyage",
-        "cover": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg",
+        "cover": "booki_cover.jpg",
         "pictures": [
             "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg",
             "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-2.jpg"
@@ -16,7 +16,7 @@
         "type": "projet",
         "title": "Projet OpenClassrooms : MenuMaker By Qwenta",
         "subtitle": "Création de la page d'accueil d'une agence de voyage",
-        "cover": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg",
+        "cover": "sb1_cover.jpg",
         "pictures": [
             "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg",
             "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-2.jpg"
@@ -28,7 +28,7 @@
         "type": "",
         "title": "Projet OpenClassrooms : MenuMaker By Qwenta",
         "subtitle": "Création de la page d'accueil d'une agence de voyage",
-        "cover": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg",
+        "cover": "",
         "pictures": [
             "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg",
             "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-2.jpg"
@@ -40,7 +40,7 @@
         "type": "project",
         "title": "Projet OpenClassrooms : MenuMaker By Qwenta",
         "subtitle": "Création de la page d'accueil d'une agence de voyage",
-        "cover": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg",
+        "cover": "",
         "pictures": [
             "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg",
             "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-2.jpg"
@@ -52,7 +52,7 @@
         "type": "project",
         "title": "Projet OpenClassrooms : MenuMaker By Qwenta",
         "subtitle": "Création de la page d'accueil d'une agence de voyage",
-        "cover": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg",
+        "cover": "",
         "pictures": [
             "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg",
             "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-2.jpg"
@@ -73,10 +73,10 @@
         "type": "project",
         "title": "Projet OpenClassrooms : MenuMaker By Qwenta",
         "subtitle": "Création de la page d'accueil d'une agence de voyage",
-        "cover": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg",
+        "cover": "",
         "pictures": [
-            "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg",
-            "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-2.jpg"
+            "",
+            ""
         ],
         "description": "Intégration d'une maquette Figma en <span class='filter'>HTML</span> et <span class='filter'>CSS</span>. En mode desktop, tablette et mobile"
     },
@@ -85,7 +85,7 @@
         "type": "project",
         "title": "Projet OpenClassrooms : MenuMaker By Qwenta",
         "subtitle": "Création de la page d'accueil d'une agence de voyage",
-        "cover": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg",
+        "cover": "",
         "pictures": [
             "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg",
             "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-2.jpg"
