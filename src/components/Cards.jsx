@@ -1,9 +1,15 @@
 import React, { useState } from 'react'
 import cardsData from '../datas/cards.json'
+// import booki from '../assets/covers/booki_cover.jpg'
 import '../styles/cards.scss'
 
 function Cards() {
     const [jsonData] = useState(cardsData)
+    
+    const getImagePath = (filename) => {
+      if (!filename) return '';
+      return require(`../assets/covers/${filename}`);
+  };
 
     return (
         <ul className="cards">
@@ -12,7 +18,7 @@ function Cards() {
                 {card.type === 'project' && (
                 <img
                   // className="cards__project__image"
-                  src={card.cover}
+                  src={getImagePath(card.cover)}
                   alt={card.title}
                 />
                 )}
