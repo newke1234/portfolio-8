@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import cardsData from '../datas/cards.json'
-// import booki from '../assets/covers/booki_cover.jpg'
 import '../styles/cards.scss'
 
 function Cards() {
@@ -17,7 +16,6 @@ function Cards() {
             <li key={id} className="cards__projects">
                 {card.type === 'project' && (
                 <img
-                  // className="cards__project__image"
                   src={getImagePath(card.cover)}
                   alt={card.title}
                 />
@@ -25,8 +23,12 @@ function Cards() {
                 {card.type === 'letter' && (
                 <p className="cards__letter">{card.title}</p>
                 )}
-                {/* <div className="cards__project__gradient"></div> */}
-                {/* <div className="cards__project__title">{card.title}</div> */}
+                {card.type === 'lang' && (
+                <img
+                src={getImagePath(card.cover)}
+                alt={card.title}
+                />
+                )}
             </li>
           ))}
           {/* Si aucun projet n'a été trouvé pour un ID donné, rediriger directement vers la page 404 */}
