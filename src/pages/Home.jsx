@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import Cards from '../components/Cards';
 import Divers from '../components/Divers';
 import Description from '../components/Description';
@@ -5,6 +6,8 @@ import '../styles/containers.scss';
 import HiddenCard from '../components/HiddenCard';
 
 function Home() {
+    const [projectDetails, setProjectDetails] = useState({ title: "", subtitle: "", description: "" });
+
     return (
         <div>
             <div className='container'>
@@ -16,10 +19,10 @@ function Home() {
                 
                 <div className="container__middle">
                     <div className='container__middle-description'>
-                        <Description />
+                        <Description details={projectDetails}/>
                     </div>
                     <div className='container__middle-cards'>
-                        <Cards />
+                        <Cards setProjectDetails={setProjectDetails} /> {/* Pass setProjectDetails to Cards */}
                     </div>
                     <div className='container__middle-divers'>
                         <Divers />
@@ -38,7 +41,7 @@ function Home() {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default Home
+export default Home;
