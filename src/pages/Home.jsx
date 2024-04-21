@@ -6,14 +6,14 @@ import '../styles/containers.scss';
 import HiddenCard from '../components/HiddenCard';
 
 function Home() {
-    const [projectDetails, setProjectDetails] = useState({ title: "", subtitle: "", description: "" });
+    const [projectDetails, setProjectDetails] = useState({ title: "", subtitle: "", pictures: [], description: "", tech: "" });
 
     return (
         <div>
             <div className='container'>
                 <div className='container__head'>
                     <div><HiddenCard /></div>
-                    <div className='container__head-title'>Nicolas Richelet</div>
+                    <h1 className='container__head-title'>Nicolas Richelet</h1>
                     <div><HiddenCard display="visible"/></div>
                 </div>
                 

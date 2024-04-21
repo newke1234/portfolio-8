@@ -1,12 +1,23 @@
 import React from 'react';
 
 function Description({ details }) {
-    const { title, subtitle, description } = details;
+    const getImagePath = (filename) => {
+        if (!filename) return '';
+        return require(`../assets/images/${filename}`);
+    };
+
     return (
-        <div>
-            <h1>{title}</h1>
-            <h2>{subtitle}</h2>
-            <p>{description}</p>
+        <div className="description-container">
+            <h2>{details.title}</h2>
+            <h3>{details.subtitle}</h3>
+            {details.pictures && details.pictures.map((picture, index) =>
+                picture ? <div className="description-container-images"><img key={index} src={getImagePath(picture)} alt={`${details.title} ${index + 1}`} /></div> : null
+            )}
+            {details.description && details.description.map((desc, index) => (
+                <p key={index}>{desc}</p>
+            ))}
+            <p className="inverse">{details.tech}</p>
+            
         </div>
     );
 }

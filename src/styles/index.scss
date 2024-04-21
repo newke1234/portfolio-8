@@ -21,16 +21,35 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: "Jersey 10", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
+// code {
+//   font-family: "Jersey 10", sans-serif;
+//   font-weight: 400;
+//   font-style: normal;
+// }
 
-.jersey-36{
-  font-size: 36;
+.jersey-34{
+  font-size: 34;
 }
 
 .jersey-19{
   font-size: 19;
 }
+
+h1 {
+  font-size: 34px;
+  font-weight: 400;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 34px;
+  
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 19px;
+  margin: 5px 0 0 0;
+}
+
+

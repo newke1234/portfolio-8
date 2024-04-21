@@ -29,14 +29,23 @@
 
         &-description {
             margin: 0 20px 0 20px;
-            display: flex;
-            justify-content: right;
-            background-color: red;
+            text-align: right;
+            // background-color: beige;
             width: 100%;
         }
 
+        &-description img {
+            margin: 20px 0 0 0;
+            width: 180px;
+            border: 2px solid gray;
+        }
+
+        &-description p {
+            font-size: 16px;
+            margin: 10px 0 0 0;
+          }
+
         &-cards {
-            background-color: yellow;
             width: 620px;
         }
 
@@ -61,10 +70,10 @@
             justify-content: space-between;
             align-items: flex-start;
 
-            &-nav {
-                //  width: 580px;
-                // background-color: beige;
-            }
+            // &-nav {
+            //      width: 580px;
+            //     background-color: beige;
+            // }
 
             &-nav ul{
                 list-style-type: none;
