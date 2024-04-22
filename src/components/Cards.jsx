@@ -35,10 +35,11 @@ function Cards({ setProjectDetails }) { // Added prop for setting project detail
                     {card.type === 'lang' && (
                         <img src={getImagePath(card.cover)} alt={card.title} />
                     )}
+                    {card.id === 15 && (<span classname = ""></span>)}
                 </li>
             ))}
         </ul>
     );
-}
+} 
 
 export default Cards;
