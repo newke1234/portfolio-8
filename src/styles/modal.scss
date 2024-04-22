@@ -1,0 +1,47 @@
+.modal-content {
+    position: fixed; // Changed to fixed to keep the modal in the center regardless of scrolling
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 480px;
+    height: 480px;
+    border: 1px solid #ccc;
+    background: #fff;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); // Optional: Adds shadow for better visibility
+
+    .close-button {
+        position: absolute;
+        top: 10px;  // Adjust as necessary
+        right: 10px; // Adjust as necessary
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        font-size: 24px; // Adjust size as necessary
+        line-height: 1;
+        padding: 0;
+        color: #aaa; // Adjust color as necessary
+
+        &:hover {
+            color: #f00; // Change color on hover if needed
+        }
+    }
+
+    img {
+
+        max-width: 120px;
+        max-height: 120px;
+        width: auto;  // Maintain the aspect ratio
+        height: auto; // Maintain the aspect ratio
+        // display: block; // This centers the image in its container if needed
+        margin: 10px; // This centers the image horizontally within the modal
+    }
+
+    p {
+        margin: 10px 0;
+    }
+}

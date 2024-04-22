@@ -1,0 +1,13 @@
+.description__container {
+    font-size: 19px;
+}
+
+.tech {
+    &__tags {
+        display: inline-block;
+        padding: 0 10px;;
+        background-color: black;
+        color: white;
+        margin-right: 10px;
+    }
+}

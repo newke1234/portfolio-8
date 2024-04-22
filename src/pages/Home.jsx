@@ -3,6 +3,8 @@ import Modal from 'react-modal';
 import Cards from '../components/Cards';
 import Description from '../components/Description';
 import '../styles/containers.scss';
+import '../styles/modal.scss';
+import '../styles/description.scss';
 import HiddenCard from '../components/HiddenCard';
 
 Modal.setAppElement('#root');  // Ensure this matches your app structure
@@ -28,36 +30,18 @@ function Home() {
                 <HiddenCard />
                 <h1 className='container__head-title'>Nicolas Richelet</h1>
                 <HiddenCard display="visible"/>
-            </div>
-            
+            </div>   
             <div className="container__middle">
                 <Cards setProjectDetails={handleProjectClick} />  {/* Pass handleProjectClick */}
-                <Modal
+                <Modal className="modal-content"
                     isOpen={modalIsOpen}
                     onRequestClose={closeModal}
                     contentLabel="Project Details"
-                    style={{
-                        content: {
-                            position: 'absolute',
-                            top: '40px',
-                            left: '40px',
-                            right: '40px',
-                            bottom: '40px',
-                            border: '1px solid #ccc',
-                            background: '#fff',
-                            overflow: 'auto',
-                            WebkitOverflowScrolling: 'touch',
-                            borderRadius: '4px',
-                            outline: 'none',
-                            padding: '20px'
-                        }
-                    }}
                 >
                     <Description details={projectDetails} />
-                    <button onClick={closeModal}>Close</button>
+                    <button onClick={closeModal} className="close-button" aria-label="Close">X</button>
                 </Modal>
             </div>
-
             <div className='container__down'>
                 <HiddenCard />
                 <div className='container__down-main'>
