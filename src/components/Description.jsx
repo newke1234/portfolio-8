@@ -18,9 +18,9 @@ function Description({ details }) {
             {details.description && details.description.map((desc, index) => (
                 <p key={index}>{desc}</p>
             ))}
-            <div className="tech-container">
+            <div className="tech">
                 {details.tech && details.tech.map((techItem, index) => (
-                <span className="tech-tags" key={index}>{techItem}</span>
+                <span className="tech__tags" key={index}>{techItem}</span>
             ))}
             </div>
         </div>
