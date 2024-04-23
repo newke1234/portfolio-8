@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import cardsData from '../datas/cards.json';
 import '../styles/cards.scss';
 
-function Cards({ setProjectDetails }) { // Added prop for setting project details
+function Cards({ setProjectDetails, modalOpen }) { // Receive modalOpen prop
     const [jsonData] = useState(cardsData);
 
     const handleCardClick = card => {
@@ -11,11 +11,11 @@ function Cards({ setProjectDetails }) { // Added prop for setting project detail
               title: card.title,
               subtitle: card.subtitle,
               description: card.description,
-              pictures: card.pictures || [], // S'assure que les images sont incluses, même si elles sont absentes
+              pictures: card.pictures || [],
               tech: card.tech
           });
       }
-  };
+    };
 
     const getImagePath = (filename) => {
         if (!filename) return '';
@@ -23,7 +23,7 @@ function Cards({ setProjectDetails }) { // Added prop for setting project detail
     };
 
     return (
-        <ul className="cards">
+        <ul className={`cards ${modalOpen ? 'cards__modal-open' : ''}`}>
             {jsonData.map((card, id) => (
                 <li key={id} className="cards__projects" onClick={() => handleCardClick(card)}>
                     {card.type === 'project' && (
@@ -35,7 +35,6 @@ function Cards({ setProjectDetails }) { // Added prop for setting project detail
                     {card.type === 'lang' && (
                         <img src={getImagePath(card.cover)} alt={card.title} />
                     )}
-                    {card.id === 15 && (<span classname = ""></span>)}
                 </li>
             ))}
         </ul>
