@@ -1,26 +1,32 @@
 .cards {
-    // margin: 20px;
     display: grid;
-    grid-template-columns: repeat(6, 80px); /* Crée 6 colonnes de 80px chacune */
-    grid-template-rows: repeat(6, 80px); /* Crée 6 rangées de 80px chacune */
-    gap: 20px; /* Aucun espace entre les cubes */
+    grid-template-columns: repeat(6, 80px);
+    grid-template-rows: repeat(6, 80px);
+    gap: 20px; // Regular gap when modal is not open
 
-    &__projects img {
-        width: 80px;
-        height: 80px;
+    &__projects {
+        transition: scale 0.3s ease;
+        scale: 1; // Default margin
         
+        // img {
+        //     width: 80px;
+        //     height: 80px;
+        // }
     }
 
-    &__letter {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 100px;
-        color: white;
-        height: 80px;
+    &.cards__modal-open &__projects {
+        scale: 0; // Reduced margin when modal is open
     }
 }
 
+.cards__letter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: white;
+    height: 80px;
+}
 
 
 .cards li {

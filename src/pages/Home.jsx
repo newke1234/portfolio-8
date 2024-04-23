@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import Cards from '../components/Cards';
 import Description from '../components/Description';
+import HiddenCard from '../components/HiddenCard';
+
 import '../styles/containers.scss';
 import '../styles/modal.scss';
 import '../styles/description.scss';
-import HiddenCard from '../components/HiddenCard';
 
-Modal.setAppElement('#root');  // Ensure this matches your app structure
+Modal.setAppElement('#root'); // Ensure this matches your app structure
 
 function Home() {
     const [projectDetails, setProjectDetails] = useState({
@@ -18,7 +19,6 @@ function Home() {
     const openModal = () => setIsOpen(true);
     const closeModal = () => setIsOpen(false);
 
-    // Update project details and open modal
     const handleProjectClick = (details) => {
         setProjectDetails(details);
         openModal();
@@ -32,10 +32,12 @@ function Home() {
                 <HiddenCard display="visible"/>
             </div>   
             <div className="container__middle">
-                <Cards setProjectDetails={handleProjectClick} />  {/* Pass handleProjectClick */}
-                <Modal className="modal-content"
+                <Cards setProjectDetails={handleProjectClick} modalOpen={modalIsOpen} />
+                <Modal
                     isOpen={modalIsOpen}
                     onRequestClose={closeModal}
+                    className="modal-content"
+                    overlayClassName="modal-overlay"
                     contentLabel="Project Details"
                 >
                     <Description details={projectDetails} />
