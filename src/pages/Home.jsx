@@ -3,7 +3,8 @@ import Modal from 'react-modal';
 import Cards from '../components/Cards';
 import Description from '../components/Description';
 import HiddenCard from '../components/HiddenCard';
-
+import Bio from '../components/Bio';  // Import Bio component
+import Contact from '../components/Contact';  // Import Contact component
 import '../styles/containers.scss';
 import '../styles/modal.scss';
 import '../styles/description.scss';
@@ -14,14 +15,18 @@ function Home() {
     const [projectDetails, setProjectDetails] = useState({
         title: "", subtitle: "", description: "", pictures: [], tech: ""
     });
-    const [modalIsOpen, setIsOpen] = useState(false);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [modalContent, setModalContent] = useState('');
 
-    const openModal = () => setIsOpen(true);
-    const closeModal = () => setIsOpen(false);
+    const openModal = (content) => {
+        setModalContent(content); // 'bio', 'contact', or 'project'
+        setModalIsOpen(true);
+    };
+    const closeModal = () => setModalIsOpen(false);
 
     const handleProjectClick = (details) => {
         setProjectDetails(details);
-        openModal();
+        openModal('project');
     };
 
     return (
@@ -30,26 +35,41 @@ function Home() {
                 <HiddenCard />
                 <h1 className='container__head-title'>Nicolas Richelet</h1>
                 <HiddenCard display="visible"/>
-            </div>   
+            </div>
             <div className="container__middle">
                 <Cards setProjectDetails={handleProjectClick} modalOpen={modalIsOpen} />
                 <Modal
-                    isOpen={modalIsOpen}
+                    isOpen={modalIsOpen && modalContent === 'project'}
                     onRequestClose={closeModal}
                     className="modal-content"
-                    overlayClassName="modal-overlay"
+                    overlayClassName="ReactModal__Overlay"
                     contentLabel="Project Details"
+                    closeTimeoutMS={200}
                 >
                     <Description details={projectDetails} />
-                    <button onClick={closeModal} className="close-button" aria-label="Close">X</button>
+                    <button onClick={closeModal} className="close-button">X</button>
                 </Modal>
             </div>
             <div className='container__down'>
                 <HiddenCard />
                 <div className='container__down-main'>
-                    <ul><li>01.bio</li><li>02.contact</li></ul>
+                    <ul>
+                        <li onClick={() => openModal('bio')}>01.bio</li>
+                        <li onClick={() => openModal('contact')}>02.contact</li>
+                    </ul>
                     <div className='container__down-main-job'>Développeur d'Applications Web</div>
                 </div>
+                <Modal
+                    isOpen={modalIsOpen && (modalContent === 'bio' || modalContent === 'contact')}
+                    onRequestClose={closeModal}
+                    className="modal-content"
+                    overlayClassName="ReactModal__Overlay"
+                    contentLabel={modalContent === 'bio' ? 'Bio' : 'Contact'}
+                    closeTimeoutMS={200}
+                >
+                    {modalContent === 'bio' ? <Bio /> : <Contact />}
+                    <button onClick={closeModal} className="close-button">X</button>
+                </Modal>
                 <HiddenCard />
             </div>
         </div>

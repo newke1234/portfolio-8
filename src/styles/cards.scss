@@ -5,13 +5,20 @@
     gap: 20px; // Regular gap when modal is not open
 
     &__projects {
-        transition: scale 0.3s ease;
+        transition: scale 0.2s ease;
         scale: 1; // Default margin
         
-        // img {
-        //     width: 80px;
-        //     height: 80px;
-        // }
+        img {
+            opacity: 0; /* Hide the image initially */
+            transition: opacity 2s ease-in; /* Smooth transition for the opacity change */
+            cursor: pointer;
+        }
+    }
+
+    &__projects:hover img {
+        
+        transition: opacity 0.05s ease-out;
+        opacity: 1; /* Show the image on hover */
     }
 
     &.cards__modal-open &__projects {
@@ -45,7 +52,14 @@
 }
 
 .visible{
-      background-color: gray;
+    background-color: white;
+    color:white;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.visible:hover {
+    background-color: gray;
+
 }
 
 .hidden{
