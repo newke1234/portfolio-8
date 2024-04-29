@@ -25,7 +25,7 @@ function Cards({ setProjectDetails, modalOpen }) {
     
     useEffect(() => {
         fetchData();
-        // console.log({cardsData});
+        console.log({cardsData});
     });
 
     const handleCardClick = card => {
@@ -35,7 +35,7 @@ function Cards({ setProjectDetails, modalOpen }) {
               subtitle: card.subtitle,
               descriptions: card.descriptions,
               pictures: card.pictures || [],
-              tech: card.tech
+              technos: card.technos
           });
       }
     };
