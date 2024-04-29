@@ -11,7 +11,7 @@ function Cards({ setProjectDetails, modalOpen }) {
 
     // Fetch data from Dolibarr API
     const fetchData = async () => {
-        const apiURL = 'http://localhost/dolibarr/htdocs/api/index.php/devportfolioapi/mycardss';
+        const apiURL = 'http://localhost/dolibarr/htdocs/api/index.php/devportfolioapi/cards';
         try {
             const response = await axios.get(`${apiURL}?DOLAPIKEY=${DOLAPIKEY}`);
             if (response.data && response.data.length > 0) {
