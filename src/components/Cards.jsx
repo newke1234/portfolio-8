@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from 'react';
-// import cardsData from '../datas/cards.json';
 import axios from 'axios';
 import '../styles/cards.scss';
 
-const DOLAPIKEY = "242f5d77a5a8a35423df34d2af682419b314a428" // mettre en .env
+const DOLAPIKEY = "ogjvDqFiS1B5WJ32hi440rC6DzBf1KY6"; // This should be in .env for security
 
 function Cards({ setProjectDetails, modalOpen }) {
-    const [cardsData, setCardsData] = useState([]); // Initialize state to hold fetched data
+    const totalCubes = 36;
+    const placeholderData = Array(totalCubes).fill({ cardtype: 'placeholder' });
+    const [cardsData, setCardsData] = useState(placeholderData); // Initialize with placeholders
 
     // Fetch data from Dolibarr API
     const fetchData = async () => {
-        const apiURL = 'https://www.nicolasrichelet.dev/dolibarr/htdocs/api/index.php/cards';
+        const apiURL = 'http://localhost/dolibarr/htdocs/api/index.php/devportfolioapi/mycardss';
         try {
-            const response = await axios.get(apiURL + `?DOLAPIKEY=${DOLAPIKEY}`, {
-                // headers: {
-                //     'DOLAPIKEY': '242f5d77a5a8a35423df34d2af682419b314a428'
-                // }
-            });
-            setCardsData(response.data); // Store fetched data in state
+            const response = await axios.get(`${apiURL}?DOLAPIKEY=${DOLAPIKEY}`);
+            if (response.data && response.data.length > 0) {
+                const mergedData = response.data.concat(placeholderData.slice(response.data.length, totalCubes));
+                setCardsData(mergedData); // Merge data with placeholders to ensure total remains 36
+            }
         } catch (error) {
             console.error("Error fetching data: ", error);
         }
@@ -25,14 +25,15 @@ function Cards({ setProjectDetails, modalOpen }) {
     
     useEffect(() => {
         fetchData();
-    }, []);
+        // console.log({cardsData});
+    });
 
     const handleCardClick = card => {
-      if (card.type === "project") {
+      if (card.cardtype === "project") {
           setProjectDetails({
               title: card.title,
               subtitle: card.subtitle,
-              description: card.description,
+              descriptions: card.descriptions,
               pictures: card.pictures || [],
               tech: card.tech
           });
@@ -47,14 +48,23 @@ function Cards({ setProjectDetails, modalOpen }) {
     return (
         <ul className={`cards ${modalOpen ? 'cards__modal-open' : ''}`}>
             {cardsData.map((card, id) => (
+               
                 <li key={id} className="cards__projects" onClick={() => handleCardClick(card)}>
-                    {card.type === 'project' && (
-                        <img src={getImagePath(card.cover)} alt={card.title} />
+              
+                    {card.cardtype === 'placeholder' && (
+                        <div className="card__placeHolder">
+                            Placeholder
+                        </div>
                     )}
-                    {card.type === 'letter' && (
+                    {card.cardtype === 'project' && (
+                        <div>
+                           <img src={getImagePath(card.cover)} alt={card.title} />
+                        </div>
+                    )}
+                    {card.cardtype === 'letter' && (
                         <p className="cards__letter">{card.title}</p>
                     )}
-                    {card.type === 'lang' && (
+                    {card.cardtype === 'lang' && (
                         <img src={getImagePath(card.cover)} alt={card.title} />
                     )}
                 </li>

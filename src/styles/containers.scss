@@ -63,13 +63,13 @@
         align-items: flex-start;
         
         &-main {
-        // background-color: aqua;
             width: 580px;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             align-items: flex-start;
             list-style-type: none;
+
 
             ul{
                 list-style-type: none;
@@ -93,7 +93,7 @@
             &-job{
                 margin-top: -6px;
                 font-size: 34px;
-            }
+             }
     }
         
     }

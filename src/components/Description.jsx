@@ -15,7 +15,7 @@ function Description({ details }) {
                 picture ? <img key={index} src={getImagePath(picture)} alt={`${details.title} ${index + 1}`} />: null
             )}
             </div> 
-            {details.description && details.description.map((desc, index) => (
+            {details.descriptions && details.descriptions.map((desc, index) => (
                 <p key={index}>{desc}</p>
             ))}
             <div className="tech">

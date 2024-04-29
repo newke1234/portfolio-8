@@ -13,7 +13,7 @@ Modal.setAppElement('#root'); // Ensure this matches your app structure
 
 function Home() {
     const [projectDetails, setProjectDetails] = useState({
-        title: "", subtitle: "", description: "", pictures: [], tech: ""
+        title: "", subtitle: "", descriptions: "", pictures: [], tech: ""
     });
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [modalContent, setModalContent] = useState('');
