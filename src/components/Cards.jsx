@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/cards.scss';
 
-const DOLAPIKEY = "ogjvDqFiS1B5WJ32hi440rC6DzBf1KY6"; // This should be in .env for security
+const DOLAPIKEY = "LFQfeBlfU3i3q91JqkQe09ESAvX65u61"; // This should be in .env for security
 
 function Cards({ setProjectDetails, modalOpen }) {
     const totalCubes = 36;
