@@ -30,8 +30,8 @@
     {
         "id": "2",
         "type": "project",
-        "title": "Projet OpenClassrooms : MenuMaker By Qwenta",
-        "subtitle": "Création de la page d'accueil d'une agence de voyage",
+        "title": "KASA",
+        "subtitle": "Création d'un site de location immobilière'",
         "cover": "kasa_cover.jpg",
         "pictures": [
             "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg",
@@ -42,7 +42,7 @@
     {
         "id": "3",
         "type": "",
-        "title": "Projet OpenClassrooms : MenuMaker By Qwenta",
+        "title": "Menu Maker by QWENTA",
         "subtitle": "Création de la page d'accueil d'une agence de voyage",
         "cover": "",
         "pictures": [
@@ -87,7 +87,7 @@
     {
         "id": "7",
         "type": "project",
-        "title": "Projet OpenClassrooms : MenuMaker By Qwenta",
+        "title": "Nina Carducci",
         "subtitle": "Création de la page d'accueil d'une agence de voyage",
         "cover": "ncarducci_cover.jpg",
         "pictures": [

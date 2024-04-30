@@ -9,8 +9,8 @@ function Description({ details }) {
     return (
         <div className="description__container">
             <h2>{details.title}</h2>
-            <h3>{details.subtitle}</h3>
-            <div className="description__container-images">
+            <h3>{details.description}</h3>
+            {/* <div className="description__container-images">
             {details.pictures && details.pictures.map((picture, index) =>
                 picture ? <img key={index} src={getImagePath(picture)} alt={`${details.title} ${index + 1}`} />: null
             )}
@@ -22,7 +22,7 @@ function Description({ details }) {
                 {details.tech && details.tech.map((techItem, index) => (
                 <span className="tech__tags" key={index}>{techItem}</span>
             ))}
-            </div>
+            </div> */}
         </div>
     );
 }
