@@ -6,19 +6,21 @@ import '../styles/cards.scss';
 
 function Cards({ setProjectDetails, modalOpen }) { // Receive modalOpen prop
     const [jsonData] = useState(cardsData);
-    const [selectedProject, setSelectedProject] = useState();
+    const [projectTitle, setProjectTitle] = useState(''); // Pour stocker le titre du projet cliqué
+
 
     useEffect(() => {
-        if (!selectedProject) return;  // Ne rien faire si aucun projet n'est sélectionné
+        if (!projectTitle) return;  // Ne rien faire si aucun projet n'est sélectionné
 
         const fetchData = async () => {
-            const apiURL = `https://www.nicolasrichelet.dev/htdocs/api/index.php/projects?title=${selectedProject.title}`;
+            const apiURL = `https://www.nicolasrichelet.dev/htdocs/api/index.php/projects?sqlfilters=title:=:'${projectTitle}'`;
             try {
                 const response = await axios.get(apiURL, {
                     headers: { "DOLAPIKEY": process.env.REACT_APP_DOLAPIKEY }
                 });
                 if (response.data && response.data.length > 0) {
                     setProjectDetails(response.data[0]);  // Assumer que le premier résultat est le bon
+                    console.log(response.data[0])
                 }
             } catch (error) {
                 console.error("Error fetching data: ", error);
@@ -26,11 +28,12 @@ function Cards({ setProjectDetails, modalOpen }) { // Receive modalOpen prop
         };
 
         fetchData();
-    }, [selectedProject]); // Effect déclenché par le changement de selectedProject
+    }, [projectTitle]); // Effect déclenché par le changement de selectedProject
     
     const handleCardClick = card => {
         if (card.type === "project") {
-            setSelectedProject(card);  // Définir le projet sélectionné basé sur la carte cliquée
+            console.log(card.title);
+            setProjectTitle(card.title); // Définir le titre qui déclenchera l'appel API
         }
     };
 
