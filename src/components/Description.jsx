@@ -4,6 +4,8 @@ import axios from 'axios';
 
 function Description({ details }) {
     const [projectPictures, setProjectPictures] = useState([]);
+    const [projectTasks, setProjectTasks] = useState([]);
+    const [projectTags, setProjectTags] = useState([]);
     
     useEffect(() => {
         const fetchDataPictures = async () => {
@@ -24,8 +26,40 @@ function Description({ details }) {
     }, [details.id]); 
 
     useEffect(() => {
-        console.log(process.env.REACT_APP_BASEPATH); 
-    }, [projectPictures]);
+        const fetchDataTasks = async () => {
+            const apiURLTasks = `https://www.nicolasrichelet.dev/htdocs/api/index.php/tasks?sqlfilters=fk_projet:=:'${details.id}'`;
+            try {
+                const response = await axios.get(apiURLTasks, {
+                    headers: { "DOLAPIKEY": process.env.REACT_APP_DOLAPIKEY }
+                });
+                if (response.data && response.data.length > 0) {
+                    setProjectTasks(response.data);
+                }
+            } catch (error) {
+                console.error("Error fetching data for Tasks: ", error);
+            }
+        };
+
+        fetchDataTasks();
+    }, [details.id]); 
+
+    useEffect(() => {
+        const fetchDataTags = async () => {
+            const apiURLTags = `https://www.nicolasrichelet.dev/htdocs/api/index.php/categories/object/project/${details.id}`;
+            try {
+                const response = await axios.get(apiURLTags, {
+                    headers: { "DOLAPIKEY": process.env.REACT_APP_DOLAPIKEY }
+                });
+                if (response.data && response.data.length > 0) {
+                    setProjectTags(response.data);
+                }
+            } catch (error) {
+                console.error("Error fetching data for Tasks: ", error);
+            }
+        };
+
+        fetchDataTags();
+    }, [details.id]); 
 
     return (
         <div className="description__container">
@@ -33,19 +67,18 @@ function Description({ details }) {
             <h3>{details.description}</h3>
             <div className="description__container-images">
                     {projectPictures && projectPictures.map((picture, index) =>
-                  
                 <img key={index} src={process.env.REACT_APP_BASEURL + picture.fullname.replace(process.env.REACT_APP_BASEPATH, "")} alt={`${details.title} ${index + 1}`} />
                
             )}
             </div> 
-            {/* {details.description && details.description.map((desc, index) => (
-                <p key={index}>{desc}</p>
+            {projectTasks && projectTasks.map((task, index) => (
+                <p key={index}>{task.description}</p>
             ))}
             <div className="tech">
-                {details.tech && details.tech.map((techItem, index) => (
-                <span className="tech__tags" key={index}>{techItem}</span>
+                {projectTags && projectTags.map((tag, index) => (
+                <span className="tech__tags" key={index}>{tag.label}</span>
             ))}
-            </div> */}
+            </div>
         </div>
     );
 }
