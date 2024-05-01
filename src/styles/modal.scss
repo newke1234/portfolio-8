@@ -26,10 +26,10 @@
 /* Styles for the modal content */
 .modal-content {
     position: relative; /* Positioned relative to the flexbox overlay */
-    width: 580px;
+    width: 85%;
     height: 580px;
     border: 1px solid #ccc;
-    background: #fff;
+    background: #eee;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     border-radius: 4px;
@@ -56,11 +56,12 @@
     }
 
     img {
-        max-width: 240px;
-        max-height: 240px;
+        max-width: 360px;
+        // max-height: 240px;
         width: auto;
         height: auto;
         margin: 10px;
+        box-shadow: 0px 10px 5px rgba(0,0,0,0.6);
     }
 
     p {
