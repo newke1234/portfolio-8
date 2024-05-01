@@ -60,25 +60,49 @@ function Description({ details }) {
 
         fetchDataTags();
     }, [details.id]); 
+    
+    useEffect(() => {
+        const fetchDataTags = async () => {
+            const apiURLTags = `https://www.nicolasrichelet.dev/htdocs/api/index.php/categories/object/project/${details.id}`;
+            try {
+                const response = await axios.get(apiURLTags, {
+                    headers: { "DOLAPIKEY": process.env.REACT_APP_DOLAPIKEY }
+                });
+                if (response.data && response.data.length > 0) {
+                    setProjectTags(response.data);
+                }
+            } catch (error) {
+                console.error("Error fetching data for Tasks: ", error);
+            }
+        };
+
+        fetchDataTags();
+    }, [details.id]); 
 
     return (
-        <div className="description__container">
-            <h2>{details.title}</h2>
-            <h3>{details.description}</h3>
-            <div className="description__container-images">
+        <div className="description-container">
+            <div className="description-container__images">
                     {projectPictures && projectPictures.map((picture, index) =>
                 <img key={index} src={process.env.REACT_APP_BASEURL + picture.fullname.replace(process.env.REACT_APP_BASEPATH, "")} alt={`${details.title} ${index + 1}`} />
-               
             )}
-            </div> 
-            {projectTasks && projectTasks.map((task, index) => (
-                <p key={index}>{task.description}</p>
-            ))}
-            <div className="tech">
-                {projectTags && projectTags.map((tag, index) => (
-                <span className="tech__tags" key={index}>{tag.label}</span>
-            ))}
             </div>
+            <div className="description-container__texts">
+                <div className="description-container__texts-content">
+                    <h2>{details.title}</h2>
+                    <h3>{details.description}</h3>
+                    
+                        {projectTasks && projectTasks.map((task, index) => (
+                    <p key={index}>{task.description}</p>
+                    
+                    ))}
+                    <a href = {details.note_private} target="_blank" rel="noopener noreferrer">{details.note_private}</a>
+                </div>
+                <div className="description-container__texts-tech">
+                    {projectTags && projectTags.map((tag, index) => (
+                    <span className="tech__tags" key={index}>{tag.label}</span>
+                ))}
+                </div>
+            </div> 
         </div>
     );
 }
