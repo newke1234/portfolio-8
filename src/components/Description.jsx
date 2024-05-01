@@ -24,7 +24,7 @@ function Description({ details }) {
     }, [details.id]); 
 
     useEffect(() => {
-        console.log(projectPictures); 
+        console.log(process.env.REACT_APP_BASEPATH); 
     }, [projectPictures]);
 
     return (
@@ -33,7 +33,9 @@ function Description({ details }) {
             <h3>{details.description}</h3>
             <div className="description__container-images">
                     {projectPictures && projectPictures.map((picture, index) =>
-                <img key={index} src={process.env.REACT_APP_BASEURL + picture.fullname.slice(process.env.REACT_APP_BASEPATH)} alt={`${details.title} ${index + 1}`} />
+                  
+                <img key={index} src={process.env.REACT_APP_BASEURL + picture.fullname.replace(process.env.REACT_APP_BASEPATH, "")} alt={`${details.title} ${index + 1}`} />
+               
             )}
             </div> 
             {/* {details.description && details.description.map((desc, index) => (
