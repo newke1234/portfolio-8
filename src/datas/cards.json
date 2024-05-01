@@ -31,7 +31,7 @@
         "id": "2",
         "type": "project",
         "title": "KASA",
-        "subtitle": "Création d'un site de location immobilière'",
+        "subtitle": "Créez une application web de location immobilière avec React",
         "cover": "kasa_cover.jpg",
         "pictures": [
             "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg",
@@ -43,7 +43,7 @@
         "id": "3",
         "type": "",
         "title": "Menu Maker by QWENTA",
-        "subtitle": "Création de la page d'accueil d'une agence de voyage",
+        "subtitle": "Planifiez le developpement du site de votre client",
         "cover": "",
         "pictures": [
             "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg",
@@ -108,7 +108,7 @@
     {
         "id": "9",
         "type": "project",
-        "title": "",
+        "title": "Mon Vieux Grimoire",
         "subtitle": "",
         "cover": "grimoire_cover.jpg",
         "pictures": "",
@@ -135,7 +135,7 @@
     {
         "id": "12",
         "type": "project",
-        "title": "",
+        "title": "COKALITI",
         "subtitle": "",
         "cover": "cokaliti_cover.jpg",
         "pictures": "",

@@ -6,11 +6,11 @@ import '../styles/cards.scss';
 
 function Cards({ setProjectDetails, modalOpen }) { // Receive modalOpen prop
     const [jsonData] = useState(cardsData);
-    const [projectTitle, setProjectTitle] = useState(''); // Pour stocker le titre du projet cliqué
-
+    const [projectTitle, setProjectTitle] = useState('');
+    const [triggerFetch, setTriggerFetch] = useState(false); // Ajout d'un trigger pour les fetchs
 
     useEffect(() => {
-        if (!projectTitle) return;  // Ne rien faire si aucun projet n'est sélectionné
+        if (!projectTitle) return;  // Ne rien faire si aucun titre de projet n'est sélectionné
 
         const fetchData = async () => {
             const apiURL = `https://www.nicolasrichelet.dev/htdocs/api/index.php/projects?sqlfilters=title:=:'${projectTitle}'`;
@@ -20,7 +20,6 @@ function Cards({ setProjectDetails, modalOpen }) { // Receive modalOpen prop
                 });
                 if (response.data && response.data.length > 0) {
                     setProjectDetails(response.data[0]);  // Assumer que le premier résultat est le bon
-                    console.log(response.data[0])
                 }
             } catch (error) {
                 console.error("Error fetching data: ", error);
@@ -28,15 +27,19 @@ function Cards({ setProjectDetails, modalOpen }) { // Receive modalOpen prop
         };
 
         fetchData();
-    }, [projectTitle]); // Effect déclenché par le changement de selectedProject
-    
+    }, [projectTitle, triggerFetch]); // Ajout de triggerFetch dans les dépendances
+
     const handleCardClick = card => {
         if (card.type === "project") {
             console.log(card.title);
-            setProjectTitle(card.title); // Définir le titre qui déclenchera l'appel API
+            if (projectTitle === card.title) {
+                // Si le même titre est cliqué, basculer le trigger pour forcer le re-fetch
+                setTriggerFetch(!triggerFetch);
+            } else {
+                setProjectTitle(card.title); // Définir le titre qui déclenchera l'appel API
+            }
         }
     };
-
     const getImagePath = (filename) => {
         if (!filename) return '';
         return require(`../assets/covers/${filename}`);
