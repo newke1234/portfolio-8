@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// import dotenv from 'dotenv';
 import cardsData from '../datas/cards.json';
 import '../styles/cards.scss';
 
@@ -31,7 +30,6 @@ function Cards({ setProjectDetails, modalOpen }) { // Receive modalOpen prop
 
     const handleCardClick = card => {
         if (card.type === "project") {
-            console.log(card.title);
             if (projectTitle === card.title) {
                 // Si le même titre est cliqué, basculer le trigger pour forcer le re-fetch
                 setTriggerFetch(!triggerFetch);
