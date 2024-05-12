@@ -43,23 +43,23 @@ function Description({ details }) {
         fetchDataTasks();
     }, [details.id]); 
 
-    useEffect(() => {
-        const fetchDataTags = async () => {
-            const apiURLTags = `https://www.nicolasrichelet.dev/htdocs/api/index.php/categories/object/project/${details.id}`;
-            try {
-                const response = await axios.get(apiURLTags, {
-                    headers: { "DOLAPIKEY": process.env.REACT_APP_DOLAPIKEY }
-                });
-                if (response.data && response.data.length > 0) {
-                    setProjectTags(response.data);
-                }
-            } catch (error) {
-                console.error("Error fetching data for Tasks: ", error);
-            }
-        };
+    // useEffect(() => {
+    //     const fetchDataTags = async () => {
+    //         const apiURLTags = `https://www.nicolasrichelet.dev/htdocs/api/index.php/categories/object/project/${details.id}`;
+    //         try {
+    //             const response = await axios.get(apiURLTags, {
+    //                 headers: { "DOLAPIKEY": process.env.REACT_APP_DOLAPIKEY }
+    //             });
+    //             if (response.data && response.data.length > 0) {
+    //                 setProjectTags(response.data);
+    //             }
+    //         } catch (error) {
+    //             console.error("Error fetching data for Tasks: ", error);
+    //         }
+    //     };
 
-        fetchDataTags();
-    }, [details.id]); 
+    //     fetchDataTags();
+    // }, [details.id]); 
     
     useEffect(() => {
         const fetchDataTags = async () => {
