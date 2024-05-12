@@ -3,16 +3,7 @@
         "id": "0",
         "type": "project",
         "title": "BOOKI",
-        "subtitle": "Création de la page d'accueil d'une agence de voyage",
-        "cover": "booki_cover.jpg",
-        "pictures": [
-            "booki1.jpg",
-            "booki2.jpg"
-        ],
-        "description": ["Intégration d'une maquette Figma en mode Responsive."   
-        ],
-        "tech": ["HTML","CSS"],
-        "link": "http://www.cokaliti.fr"        
+         "cover": "booki_cover.jpg"  
     },
     {
         "id": "1",
