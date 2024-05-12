@@ -9,7 +9,7 @@ function Description({ details }) {
     
     useEffect(() => {
         const fetchDataPictures = async () => {
-            const apiURLPictures = `https://www.nicolasrichelet.dev/htdocs/api/index.php/documents?modulepart=projet&id=${details.id}`;
+            const apiURLPictures = `${process.env.REACT_APP_BASEURL}${process.env.REACT_APP_URLAPI}documents?modulepart=projet&id=${details.id}`;
             try {
                 const response = await axios.get(apiURLPictures, {
                     headers: { "DOLAPIKEY": process.env.REACT_APP_DOLAPIKEY }
@@ -27,7 +27,7 @@ function Description({ details }) {
 
     useEffect(() => {
         const fetchDataTasks = async () => {
-            const apiURLTasks = `https://www.nicolasrichelet.dev/htdocs/api/index.php/tasks?sqlfilters=fk_projet:=:'${details.id}'`;
+            const apiURLTasks = `${process.env.REACT_APP_BASEURL}${process.env.REACT_APP_URLAPI}tasks?sqlfilters=fk_projet:=:'${details.id}'`;
             try {
                 const response = await axios.get(apiURLTasks, {
                     headers: { "DOLAPIKEY": process.env.REACT_APP_DOLAPIKEY }
@@ -63,7 +63,7 @@ function Description({ details }) {
     
     useEffect(() => {
         const fetchDataTags = async () => {
-            const apiURLTags = `https://www.nicolasrichelet.dev/htdocs/api/index.php/categories/object/project/${details.id}`;
+            const apiURLTags = `${process.env.REACT_APP_BASEURL}${process.env.REACT_APP_URLAPI}categories/object/project/${details.id}`;
             try {
                 const response = await axios.get(apiURLTags, {
                     headers: { "DOLAPIKEY": process.env.REACT_APP_DOLAPIKEY }
