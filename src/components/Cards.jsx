@@ -12,10 +12,11 @@ function Cards({ setProjectDetails, modalOpen }) { // Receive modalOpen prop
         if (!projectTitle) return;  // Ne rien faire si aucun titre de projet n'est sélectionné
 
         const fetchData = async () => {
-            const apiURL = `https://www.nicolasrichelet.dev/htdocs/api/index.php/projects?sqlfilters=title:=:'${projectTitle}'`;
+            const apiURL = `${process.env.REACT_APP_BASEURL}${process.env.REACT_APP_URLAPI}projects?sqlfilters=title:=:'${projectTitle}'`;
             try {
                 const response = await axios.get(apiURL, {
-                    headers: { "DOLAPIKEY": process.env.REACT_APP_DOLAPIKEY }
+                    headers: { "DOLAPIKEY": process.env.REACT_APP_DOLAPIKEY
+                     }
                 });
                 if (response.data && response.data.length > 0) {
                     setProjectDetails(response.data[0]);  // Assumer que le premier résultat est le bon
