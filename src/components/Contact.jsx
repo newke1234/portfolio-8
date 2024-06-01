@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
-        name: '',
         email: '',
+        subject: '',
         message: ''
     });
 
@@ -14,90 +14,41 @@ const Contact = () => {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        let contactId;
-        let contactExists = true;
     
         try {
-            // Check if contact exists
-            const contactResponse = await axios.get(`${process.env.REACT_APP_BASEURL}${process.env.REACT_APP_URLAPI}contacts?sortfield=t.email&sortorder=ASC&limit=100&sqlfilters=(t.email:=:'${formData.email}')`, {
-                headers: {
-                    'DOLAPIKEY': process.env.REACT_APP_DOLAPIKEY, // Your Dolibarr API key
-                    'Accept': 'application/json'
-                }
-            });
-            contactId = contactResponse.data[0].id;
-            console.log('Contact response', contactResponse.data);
-        } catch (error) {
-            if (error.response && error.response.status === 404) {
-                // Contact does not exist
-                contactExists = false;
-                console.log('Contact does not exist', error.response.data);
-            } else {
-                // Other errors
-                console.error('Error while checking contact', error);
-            }
-        };
-    
-            
-        if (!contactExists) {
-            // Create a new contact
-            try {
-                const newContactResponse = await axios.post(`${process.env.REACT_APP_BASEURL}${process.env.REACT_APP_URLAPI}contacts`, {
-                    lastname: formData.name,
+            const response = await axios.get(process.env.REACT_APP_LOCAL, {
+                params: {
+                    action: 'create_ticket',
                     email: formData.email,
-                    // Add other necessary fields according to Dolibarr API
-                }, {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'DOLAPIKEY': process.env.REACT_APP_DOLAPIKEY, // Your Dolibarr API key
-                        'Accept': 'application/json'
-                    }
-                });
-                contactId = newContactResponse.data.id;
-                console.log('New contact created successfully', newContactResponse.data);
-            } catch (error) {
-                console.error('Error while creating new contact', error);
-            }
-        }
-    
-            // Create ticket
-            const ticketResponse = await axios.post(`${process.env.REACT_APP_BASEURL}${process.env.REACT_APP_URLAPI}tickets`, JSON.stringify({
-                fk_socpeople: contactId,
-                message: formData.message,
-                // Add other necessary fields according to Dolibarr API
-            }), {
+                    subject: formData.subject,
+                    message: formData.message,
+                    type_code: 'COM',
+                    category_code: 'CTC',
+                    severity_code: 'NORMAL'
+            }, 
                 headers: {
-                    'Content-Type': 'application/json',
-                    'DOLAPIKEY': process.env.REACT_APP_DOLAPIKEY, // Your Dolibarr API key
+                    'Content-Type': 'application/x-www-form-urlencoded',
                     'Accept': 'application/json'
                 }
             });
-            console.log('Ticket created successfully', ticketResponse.data);
+            let cleanData = response.data.replace(/<\/?[^>]+(>|$)/g, "");
+            console.log('Ticket created successfully', cleanData);
     
             // Reset the form after submission
             setFormData({
-                name: '',
                 email: '',
+                subject: '',
                 message: ''
             });
-       
+        } catch (error) {
+            console.error('Error while creating ticket', error);
+        }
     };
     return (
         <div>
             <h2>Contactez-moi</h2>
             <h3>Laissez-moi un message avec vos coordonnées, je vous recontacterais dans les plus brefs délais.</h3>
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="name">Nom:</label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
                 <div>
                     <label htmlFor="email">Email:</label>
                     <input
@@ -109,6 +60,18 @@ const Contact = () => {
                         required
                     />
                 </div>
+                <div>
+                    <label htmlFor="subject">Sujet:</label>
+                    <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                
                 <div>
                     <label htmlFor="message">Message:</label>
                     <textarea
