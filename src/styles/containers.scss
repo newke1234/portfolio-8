@@ -6,13 +6,22 @@
     justify-content: center;
     height: 100vh;
     // background-color: green;
-
+    @media (max-width: 600px) {
+        // align-items: flex-start; 
+        justify-content: flex-start;
+    
+    }
     &__head {
-       
         margin:20px;
         font-size: 34px;
         display: flex;
         flex-direction: row;
+        @media (max-width: 600px) {
+            width: 100%;
+            padding: 10px;
+            margin: 10px;
+            flex-direction: row;
+        }
         &-title {
             display: flex;
             flex-direction: column;  
@@ -20,33 +29,49 @@
             align-items: left;
             height: 80px;
             width: 580px;
-            // background-color: aqua;
+            @media (max-width: 600px) {
+                background-color: red;
+                width: 50%;
+            }
         }
     }
     &__middle {
         display: flex;
         flex-direction: row;
-
+        @media (max-width: 600px) {
+            
+        }
+       
         &-description {
             margin: 0 20px 0 20px;
             text-align: right;
-            // background-color: beige;
             width: 100%;
+            @media (max-width: 600px) {
+                width:50%;
+            }
         }
 
         &-description img {
             margin: 20px 0 0 0;
             width: 180px;
             border: 2px solid gray;
+            
         }
 
         &-description p {
             font-size: 19px;
             margin: 10px 0 0 0;
+            @media (max-width: 600px) {
+                width:50%;
+            }
           }
 
         &-cards {
-            width: 620px;
+            width: 100%;
+            flex: 1 0 auto; // Makes the card flexible
+                margin: 10px; // Adds some space around each card
+        
+    
         }
 
         &-divers {
@@ -54,6 +79,8 @@
             background-color: orange;
             width: 100%;
         }
+        
+
     }
     &__down {
         margin: 20px;
@@ -61,6 +88,9 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-start;
+        @media (max-width: 600px) {
+            flex-direction: column;
+        }
         
         &-main {
         // background-color: aqua;
@@ -70,6 +100,11 @@
             justify-content: space-between;
             align-items: flex-start;
             list-style-type: none;
+            @media (max-width: 600px) {
+                flex-direction: column;
+                width: 100%;
+          
+            }
 
             ul{
                 list-style-type: none;

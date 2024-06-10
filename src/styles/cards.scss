@@ -4,14 +4,27 @@
     grid-template-rows: repeat(6, 80px);
     gap: 20px; // Regular gap when modal is not open
 
+    @media (max-width: 600px) {
+        grid-template-columns: repeat(6, 48px);
+        grid-template-rows: repeat(6, 48px);
+        gap: 7px;
+    }
     &__projects {
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
         transition: scale 0.2s ease;
         scale: 1; // Default margin
         
         img {
-            opacity: 0; /* Hide the image initially */
+            opacity: 1; /* Hide the image initially */
             transition: opacity 2s ease-in; /* Smooth transition for the opacity change */
             cursor: pointer;
+            border-radius: 5px;
+            @media (max-width: 600px) {
+                width: 48px;
+                height: 48px;
+                border-radius: 3px;
+            }
         }
     }
 
@@ -33,6 +46,11 @@
     font-size: 100px;
     color: white;
     height: 80px;
+    @media (max-width: 600px) {
+        font-size: 70px;
+        // width: 65px;
+        height: 50px;
+    }
 }
 
 
@@ -49,12 +67,20 @@
     justify-content: center;
     align-items: center;      /* Centre le contenu horizontalement */
     font-size: 100px;
+
+    @media (max-width: 600px) {
+        display: none;
+    }
 }
 
 .visible{
     background-color: white;
     color:white;
     transition: background-color 0.2s ease-in-out;
+
+    @media (max-width: 600px) {
+        display: none;
+    }
 }
 
 .visible:hover {
