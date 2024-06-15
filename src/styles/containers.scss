@@ -5,82 +5,48 @@
     align-items: center; 
     justify-content: center;
     height: 100vh;
-    // background-color: green;
+    width: 580px;
+    margin:auto;
+
     @media (max-width: 600px) {
-        // align-items: flex-start; 
-        justify-content: flex-start;
-    
+        height: auto;
+        width: 378px;
+        margin: auto;
     }
+
     &__head {
         margin:20px;
-        font-size: 34px;
+        font-size: 4px;
         display: flex;
         flex-direction: row;
+
         @media (max-width: 600px) {
             width: 100%;
-            padding: 10px;
-            margin: 10px;
+            padding: 10px 0 10px 0;
+            margin: 5px;
             flex-direction: row;
         }
         &-title {
             display: flex;
-            flex-direction: column;  
-            justify-content: flex-end; 
             align-items: left;
-            height: 80px;
+
             width: 580px;
-            @media (max-width: 600px) {
-                background-color: red;
-                width: 50%;
-            }
+
         }
     }
     &__middle {
         display: flex;
         flex-direction: row;
+        // flex: 1 0 calc(100% / 6); // Each card can grow and shrink, and its base size is 1/6 of the container width
+        // max-width: calc(100% / 6); // Each card will not exceed 1/6 of the container width
+        
         @media (max-width: 600px) {
-            
-        }
-       
-        &-description {
-            margin: 0 20px 0 20px;
-            text-align: right;
             width: 100%;
-            @media (max-width: 600px) {
-                width:50%;
-            }
+            margin: 0 20px;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
         }
-
-        &-description img {
-            margin: 20px 0 0 0;
-            width: 180px;
-            border: 2px solid gray;
-            
-        }
-
-        &-description p {
-            font-size: 19px;
-            margin: 10px 0 0 0;
-            @media (max-width: 600px) {
-                width:50%;
-            }
-          }
-
-        &-cards {
-            width: 100%;
-            flex: 1 0 auto; // Makes the card flexible
-                margin: 10px; // Adds some space around each card
-        
-    
-        }
-
-        &-divers {
-            margin: 0 20px 0 20px;
-            background-color: orange;
-            width: 100%;
-        }
-        
-
     }
     &__down {
         margin: 20px;
@@ -90,10 +56,12 @@
         align-items: flex-start;
         @media (max-width: 600px) {
             flex-direction: column;
+
+            margin: auto;
+            margin-top: 10px;
         }
         
         &-main {
-        // background-color: aqua;
             width: 580px;
             display: flex;
             flex-direction: row;
@@ -102,8 +70,9 @@
             list-style-type: none;
             @media (max-width: 600px) {
                 flex-direction: column;
-                width: 100%;
-          
+                width: auto;
+                gap:10px;
+                // background-color: red;
             }
 
             ul{
@@ -113,10 +82,16 @@
                 justify-content: space-between;
                 gap: 71px;
                 font-size: 19px;
+                @media (max-width: 600px) {
+                    flex-direction: row;
+                    gap: 10px;
+                    justify-content: space-around;
+                    width: 100%;
+                    // background-color: green;
+                }
             }
 
             li {
-                // padding: 5px;
                 cursor: pointer;
             }
 
@@ -129,7 +104,6 @@
                 margin-top: -6px;
                 font-size: 34px;
             }
-    }
-        
+        }
     }
 }
