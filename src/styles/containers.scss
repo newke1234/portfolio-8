@@ -13,6 +13,11 @@
         width: 378px;
         margin: auto;
     }
+    @media (max-width: 400px) {
+
+        width: 298px;
+
+    }
 
     &__head {
         margin:20px;
@@ -47,7 +52,12 @@
             justify-content: center;
             align-items: center;
         }
+        @media (max-width: 410px) {
+            margin: 0 10px;
+            
+        }
     }
+    
     &__down {
         margin: 20px;
         display: flex;
@@ -103,6 +113,11 @@
             &-job{
                 margin-top: -6px;
                 font-size: 34px;
+                @media screen and (max-width: 600px){
+                    font-size: 24px;
+                    margin-top: 0px;
+                    
+                }
             }
         }
     }

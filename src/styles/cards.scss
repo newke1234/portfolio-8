@@ -1,7 +1,4 @@
 .cards {
-    // display: grid;
-    // grid-template-columns: repeat(6, 80px);
-    // grid-template-rows: repeat(6, 80px);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -9,7 +6,7 @@
     @media  (max-width: 600px) {
         gap: 6px; // Reduced gap when modal is open
     }
-    @media  (max-width: 412px) {
+    @media  (max-width: 410px) {
         gap: 3px; // Reduced gap when modal is open
     }
     
@@ -17,8 +14,7 @@
 
     &__projects {
         flex: 1 1 calc(100% / 6); // Each card can grow and shrink, and its base size is 1/6 of the container width
-        // max-width: calc(100% / 6); // Each card will not exceed 1/6 of the container width
-        max-width: 80px; // Each card will not exceed 80px in width
+         max-width: 80px; // Each card will not exceed 80px in width
         max-height: 80px;
         border-radius: 5px;
         box-shadow: 0 4px 6px rgba(0,0,0,0.3);
@@ -31,9 +27,15 @@
             max-height: 58px;
             border-radius: 3px;
         }
-       
- 
+        @media (max-width: 410px) {
+            flex: 1 0 calc(100%/ 6); /* Chaque card a une base de 1/6 de la largeur du viewport */
+            width: 100%;
+            max-width: 48px;
+            max-height: 48px;
+            border-radius: 2px;
             
+        }
+       
         img {
             opacity: 1; /* Hide the image initially */
             transition: opacity 2s ease-in; /* Smooth transition for the opacity change */
@@ -70,7 +72,6 @@
     height: 80px;
     @media (max-width: 600px) {
         font-size: 75px;
-        // width: 65px;
         height: 65px;
     }
 }
