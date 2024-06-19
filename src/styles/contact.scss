@@ -34,6 +34,12 @@
             &:focus {
                 outline: none;
             }
+            @media (prefers-color-scheme: light) {
+                border-bottom: 1px solid #000;
+            }
+            @media (prefers-color-scheme: dark) {
+                border-bottom: 1px solid #555;
+            }
             @media screen and (max-width: 600px){
                 width: 295px;
             }
@@ -52,6 +58,14 @@
 
             &:focus {
                 outline: none;
+            }
+            @media (prefers-color-scheme: light) {
+                border: 1px solid #000;
+                color: #000;
+            }
+            @media (prefers-color-scheme: dark) {
+                border: 1px solid #555;
+                color: #fff;
             }
             @media screen and (max-width: 600px){
                 width: 375px;
@@ -78,6 +92,13 @@
             cursor: pointer;
             &:hover {
                 background-color: #f00;
+            }
+            @media (prefers-color-scheme: light) {
+                background-color: black;
+            }
+            @media (prefers-color-scheme: dark) {
+                border: 1px solid #888;
+                background-color: #555;
             }
             @media screen and (max-width: 600px){
                 margin-left: 245px;

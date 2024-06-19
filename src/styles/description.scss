@@ -18,9 +18,15 @@
         justify-content: center;
         border-radius: 15px;
         background-color: lightgrey;
+        @media (prefers-color-scheme: dark) {
+            background-color: #444;
+            color: white;
+        }
+        @media (prefers-color-scheme: light) {
+        background-color: lightgrey;
+        color: black;
+          }
         @media screen and (max-width: 1840px){
-           
-            // width: 100%;
             justify-content: center;
             align-content: flex-start;
             }

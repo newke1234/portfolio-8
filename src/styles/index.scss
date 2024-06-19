@@ -6,20 +6,25 @@
   padding: 0px;
 }
 
-// .jersey-10-regular {
-//   font-family: "Jersey 10", sans-serif;
-//   font-weight: 400;
-//   font-style: normal;
-// }
 
 body {
   background-color: white;
+  color: black;
   margin: 0;
   font-family: "Jersey 10", sans-serif;
   font-weight: 400;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  @media (prefers-color-scheme: dark) {
+    background-color: black;
+    color: white;
+  }
+
+  @media (prefers-color-scheme: light) {
+    background-color: white;
+    color: black;
+  }
 }
 
 // code {

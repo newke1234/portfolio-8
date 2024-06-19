@@ -29,7 +29,7 @@
     width: 78%;
     height: 580px;
     border: 1px solid #ccc;
-    background: #eee;
+    background: #ccc;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     border-radius: 4px;
@@ -38,6 +38,14 @@
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     opacity: 1; /* Initial opacity, consider if this should be 0 */
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    @media (prefers-color-scheme: dark) {
+        background-color: #222;
+        color: white;
+    }
+    @media (prefers-color-scheme: light) {
+    background-color: #eee;
+    color: black;
+      }
     @media screen and (max-width: 925px){
         height: 90vh;
         width: 580px;
@@ -55,7 +63,6 @@
         width: 303px;
         padding: 0px;
         margin-top: 25px;
-        
     }
     &__biocontact {
         width: 580px;
@@ -90,13 +97,14 @@
         box-shadow: 0px 10px 5px rgba(0,0,0,0.6);
         object-fit: contain;
         border: 5px solid rgba(0,0,0,0.6);
+
+        
         @media screen and (max-width: 600px){
             width: 100%;
             margin: 3px;
             box-shadow: 0px 10px 5px rgba(0,0,0,0.6);
             object-fit: contain;
             border: 5px solid rgba(0,0,0,0.6);
-            
         }
   
     }
