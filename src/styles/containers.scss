@@ -7,15 +7,16 @@
     height: 100vh;
     width: 580px;
     margin:auto;
-
+    @media screen and (max-width: 925px){
+        justify-content: flex-start;
+    }
     @media (max-width: 600px) {
         height: auto;
         width: 378px;
         margin: auto;
     }
-    @media (max-width: 400px) {
-
-        width: 298px;
+    @media (max-width: 410px) {
+        width: 303px;
 
     }
 
@@ -82,7 +83,6 @@
                 flex-direction: column;
                 width: auto;
                 gap:10px;
-                // background-color: red;
             }
 
             ul{
@@ -113,8 +113,8 @@
             &-job{
                 margin-top: -6px;
                 font-size: 34px;
-                @media screen and (max-width: 600px){
-                    font-size: 24px;
+                @media screen and (max-width: 410px){
+                    font-size: 26px;
                     margin-top: 0px;
                     
                 }
