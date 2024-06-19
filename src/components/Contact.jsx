@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../styles/contact.scss';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -45,13 +46,13 @@ const Contact = () => {
         }
     };
     return (
-        <div>
+        <div className="formpage">
             <h2>Contactez-moi</h2>
             <h3>Laissez-moi un message avec vos coordonnées, je vous recontacterais dans les plus brefs délais.</h3>
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="email">Email:</label>
-                    <input
+                <div className="formpage__element">
+                    <label htmlFor="email">Email &gt;&nbsp;</label>
+                    <input className="formpage__element-input"
                         type="email"
                         id="email"
                         name="email"
@@ -60,9 +61,9 @@ const Contact = () => {
                         required
                     />
                 </div>
-                <div>
-                    <label htmlFor="subject">Sujet:</label>
-                    <input
+                <div className="formpage__element">
+                    <label htmlFor="subject">Sujet &gt;&nbsp;</label>
+                    <input className="formpage__element-input"
                         type="text"
                         id="subject"
                         name="subject"
@@ -72,9 +73,9 @@ const Contact = () => {
                     />
                 </div>
                 
-                <div>
-                    <label htmlFor="message">Message:</label>
-                    <textarea
+                <div className="formpage__element">
+                    <label htmlFor="message">Message &gt; </label>
+                    <textarea className="formpage__element-textarea" 
                         id="message"
                         name="message"
                         value={formData.message}
@@ -82,7 +83,7 @@ const Contact = () => {
                         required
                     />
                 </div>
-                <button type="submit">Envoyer</button>
+                <button className="formpage__element-button" type="submit">Envoyer</button>
             </form>
         </div>
     );

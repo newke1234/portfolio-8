@@ -32,16 +32,16 @@ function Home() {
     return (
         <div className='container'>
             <div className='container__head'>
-                <HiddenCard />
+                {/* <HiddenCard /> */}
                 <h1 className='container__head-title'>Nicolas Richelet</h1>
-                <HiddenCard display="visible"/>
+                {/* <HiddenCard /> */}
             </div>
             <div className="container__middle">
                 <Cards setProjectDetails={handleProjectClick} modalOpen={modalIsOpen} />
                 <Modal
                     isOpen={modalIsOpen && modalContent === 'project'}
                     onRequestClose={closeModal}
-                    className="modal-content"
+                    className="modalcontent"
                     overlayClassName="ReactModal__Overlay"
                     contentLabel="Project Details"
                     closeTimeoutMS={200}
@@ -51,7 +51,7 @@ function Home() {
                 </Modal>
             </div>
             <div className='container__down'>
-                <HiddenCard />
+                {/* <HiddenCard /> */}
                 <div className='container__down-main'>
                     <ul>
                         <li onClick={() => openModal('bio')}>01.bio</li>
@@ -62,7 +62,7 @@ function Home() {
                 <Modal
                     isOpen={modalIsOpen && (modalContent === 'bio' || modalContent === 'contact')}
                     onRequestClose={closeModal}
-                    className="modal-content"
+                    className="modalcontent modalcontent__biocontact"
                     overlayClassName="ReactModal__Overlay"
                     contentLabel={modalContent === 'bio' ? 'Bio' : 'Contact'}
                     closeTimeoutMS={200}
@@ -70,7 +70,7 @@ function Home() {
                     {modalContent === 'bio' ? <Bio /> : <Contact />}
                     <button onClick={closeModal} className="close-button">X</button>
                 </Modal>
-                <HiddenCard />
+                {/* <HiddenCard /> */}
             </div>
         </div>
     );

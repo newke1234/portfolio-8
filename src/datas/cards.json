@@ -105,10 +105,10 @@
     },
     {
         "id": "9",
-        "type": "project",
-        "title": "Mon Vieux Grimoire",
+        "type": "",
+        "title": "",
         "subtitle": "",
-        "cover": "grimoire_cover.jpg",
+        "cover": "",
         "pictures": "",
         "description": ""
     },
@@ -133,9 +133,9 @@
     {
         "id": "12",
         "type": "project",
-        "title": "COKALITI",
+        "title": "Mon Vieux Grimoire",
         "subtitle": "",
-        "cover": "cokaliti_cover.jpg",
+        "cover": "grimoire_cover.jpg",
         "pictures": "",
         "description": ""
     },
@@ -177,10 +177,10 @@
     },
     {
         "id": "17",
-        "type": "",
+        "type": "techno",
         "title": "",
         "subtitle": "",
-        "cover": "",
+        "cover": "html5.webp",
         "pictures": "",
         "description": ""
     },
@@ -195,10 +195,10 @@
     },
     {
         "id": "19",
-        "type": "",
-        "title": "",
+        "type": "project",
+        "title": "COKALITI",
         "subtitle": "",
-        "cover": "",
+        "cover": "cokaliti_cover.jpg",
         "pictures": "",
         "description": ""
     },
