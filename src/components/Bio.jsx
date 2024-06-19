@@ -9,7 +9,7 @@ function Bio() {
     
     useEffect(() => {
         const fetchUserBio = async () => {
-            const apiUserBio = `${process.env.REACT_APP_BASEURL}${process.env.REACT_APP_URLAPI}users/2`;
+            const apiUserBio = `${process.env.REACT_APP_BASEURL}${process.env.REACT_APP_URLAPI}users/${process.env.REACT_APP_USERID}`;
             try {
                 const response = await axios.get(apiUserBio, {
                     headers: { "DOLAPIKEY": process.env.REACT_APP_DOLAPIKEY }
