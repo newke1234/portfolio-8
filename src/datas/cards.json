@@ -3,7 +3,7 @@
         "id": "0",
         "type": "project",
         "title": "BOOKI",
-         "cover": "booki_cover.jpg"  
+        "cover": "booki_cover.jpg"
     },
     {
         "id": "1",
@@ -14,9 +14,16 @@
         "pictures": [
             "bluel1.jpg"
         ],
-        "description": ["Gestion des événements utilisateurs et la manipulation des éléments du DOM avec JavaScript","Création d'une page de connexion pour l'administrateur du site"],
-        "tech": ["HTML","CSS", "Javascript"],
-        "link": "http://www.cokaliti.fr" 
+        "description": [
+            "Gestion des événements utilisateurs et la manipulation des éléments du DOM avec JavaScript",
+            "Création d'une page de connexion pour l'administrateur du site"
+        ],
+        "tech": [
+            "HTML",
+            "CSS",
+            "Javascript"
+        ],
+        "link": "http://www.cokaliti.fr"
     },
     {
         "id": "2",
@@ -57,7 +64,7 @@
     {
         "id": "5",
         "type": "letter",
-        "title": "I",
+        "title": "O",
         "subtitle": "",
         "cover": "",
         "pictures": "",
@@ -89,8 +96,8 @@
     },
     {
         "id": "8",
-        "type": "letter",
-        "title": "P",
+        "type": "",
+        "title": "",
         "subtitle": "",
         "cover": "",
         "pictures": "",
@@ -108,7 +115,7 @@
     {
         "id": "10",
         "type": "letter",
-        "title": "L",
+        "title": "I",
         "subtitle": "",
         "cover": "",
         "pictures": "",
@@ -134,8 +141,8 @@
     },
     {
         "id": "13",
-        "type": "",
-        "title": "",
+        "type": "letter",
+        "title": "P",
         "subtitle": "",
         "cover": "",
         "pictures": "",
@@ -153,7 +160,7 @@
     {
         "id": "15",
         "type": "letter",
-        "title": "O",
+        "title": "L",
         "subtitle": "",
         "cover": "",
         "pictures": "",
@@ -198,7 +205,7 @@
     {
         "id": "20",
         "type": "letter",
-        "title": "F",
+        "title": "O",
         "subtitle": "",
         "cover": "",
         "pictures": "",
@@ -215,8 +222,8 @@
     },
     {
         "id": "22",
-        "type": "letter",
-        "title": "R",
+        "type": "",
+        "title": "",
         "subtitle": "",
         "cover": "",
         "pictures": "",
@@ -242,8 +249,8 @@
     },
     {
         "id": "25",
-        "type": "",
-        "title": "",
+        "type": "letter",
+        "title": "F",
         "subtitle": "",
         "cover": "",
         "pictures": "",
@@ -260,8 +267,8 @@
     },
     {
         "id": "27",
-        "type": "",
-        "title": "",
+        "type": "letter",
+        "title": "R",
         "subtitle": "",
         "cover": "",
         "pictures": "",
@@ -278,8 +285,8 @@
     },
     {
         "id": "29",
-        "type": "letter",
-        "title": "T",
+        "type": "",
+        "title": "",
         "subtitle": "",
         "cover": "",
         "pictures": "",
@@ -323,8 +330,8 @@
     },
     {
         "id": "34",
-        "type": "",
-        "title": "",
+        "type": "letter",
+        "title": "T",
         "subtitle": "",
         "cover": "",
         "pictures": "",
@@ -332,10 +339,10 @@
     },
     {
         "id": "35",
-        "type": "lang",
-        "title": "change language",
+        "type": "",
+        "title": "",
         "subtitle": "",
-        "cover": "england_cover.jpg",
+        "cover": "",
         "pictures": "",
         "description": ""
     }
