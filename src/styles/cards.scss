@@ -1,24 +1,63 @@
 .cards {
-    display: grid;
-    grid-template-columns: repeat(6, 80px);
-    grid-template-rows: repeat(6, 80px);
-    gap: 20px; // Regular gap when modal is not open
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px; // Space between each card
+    @media  (max-width: 600px) {
+        gap: 6px; // Reduced gap when modal is open
+    }
+    @media  (max-width: 410px) {
+        gap: 3px; // Reduced gap when modal is open
+    }
+    
+    
 
     &__projects {
+        flex: 1 1 calc(100% / 6); // Each card can grow and shrink, and its base size is 1/6 of the container width
+         max-width: 80px; // Each card will not exceed 80px in width
+        max-height: 80px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
         transition: scale 0.2s ease;
         scale: 1; // Default margin
-        
-        img {
-            opacity: 0; /* Hide the image initially */
-            transition: opacity 2s ease-in; /* Smooth transition for the opacity change */
-            cursor: pointer;
+        @media (max-width: 600px) {
+            flex: 1 0 calc(100%/ 6); /* Chaque card a une base de 1/6 de la largeur du viewport */
+            width: 100%;
+            height: auto;
+            max-width: 58px;
+            max-height: 58px;
+            border-radius: 3px;
         }
+        @media (max-width: 410px) {
+            max-width: 48px;
+            max-height: 48px;
+            border-radius: 2px;
+            
+        }
+       
+        img {
+            opacity: 1; /* Hide the image initially */
+            transition: 
+            filter 0.2s ease-out; /* Smooth transition for the opacity change */
+            cursor: pointer;
+            // filter:hue-rotate()(1.0);
+            border-radius: 5px;
+            width: 100%; /* Make the image cover 100% of the card width */
+            height: 100%; /* Make the image cover 100% of the card height */
+            object-fit: cover; /* Ensure the image fills the entire card without distortion */
+            @media (max-width: 600px) {
+                border-radius: 3px;
+            }
+            
+        }
+
     }
 
     &__projects:hover img {
         
-        transition: opacity 0.05s ease-out;
-        opacity: 1; /* Show the image on hover */
+
+        filter:hue-rotate(150deg);
+
     }
 
     &.cards__modal-open &__projects {
@@ -33,12 +72,26 @@
     font-size: 100px;
     color: white;
     height: 80px;
+    @media (max-width: 600px) {
+        font-size: 65px;
+        height: 55px;
+    }
+    @media (max-width: 410px) {
+        font-size: 60px;
+        height: 45px;
+    }
 }
 
 
 .cards li {
     background-color: gray;
     list-style-type: none;
+    @media (prefers-color-scheme: light) {
+        background-color: gray;
+    }
+    @media (prefers-color-scheme: dark) {
+        background-color: gray;
+    }
 }
 
 .hiddenCard {
@@ -49,12 +102,20 @@
     justify-content: center;
     align-items: center;      /* Centre le contenu horizontalement */
     font-size: 100px;
+
+    @media (max-width: 600px) {
+        display: none;
+    }
 }
 
 .visible{
     background-color: white;
     color:white;
     transition: background-color 0.2s ease-in-out;
+
+    @media (max-width: 600px) {
+        display: none;
+    }
 }
 
 .visible:hover {

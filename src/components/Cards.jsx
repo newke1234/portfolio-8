@@ -1,22 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import cardsData from '../datas/cards.json';
 import '../styles/cards.scss';
 
 function Cards({ setProjectDetails, modalOpen }) { // Receive modalOpen prop
     const [jsonData] = useState(cardsData);
+    const [projectTitle, setProjectTitle] = useState('');
+    const [triggerFetch, setTriggerFetch] = useState(false); // Ajout d'un trigger pour les fetchs
+
+    useEffect(() => {
+        if (!projectTitle) return;  // Ne rien faire si aucun titre de projet n'est sélectionné
+
+        const fetchData = async () => {
+            const apiURL = `${process.env.REACT_APP_BASEURL}${process.env.REACT_APP_URLAPI}projects?sqlfilters=title:=:'${projectTitle}'`;
+            try {
+                const response = await axios.get(apiURL, {
+                    headers: { "DOLAPIKEY": process.env.REACT_APP_DOLAPIKEY
+                     }
+                });
+                if (response.data && response.data.length > 0) {
+                    setProjectDetails(response.data[0]);  // Assumer que le premier résultat est le bon
+                }
+            } catch (error) {
+                console.error("Error fetching data: ", error);
+            }
+        };
+
+        fetchData();
+    }, [projectTitle, triggerFetch]); // Ajout de triggerFetch dans les dépendances
 
     const handleCardClick = card => {
-      if (card.type === "project") {
-          setProjectDetails({
-              title: card.title,
-              subtitle: card.subtitle,
-              description: card.description,
-              pictures: card.pictures || [],
-              tech: card.tech
-          });
-      }
+        if (card.type === "project") {
+            if (projectTitle === card.title) {
+                // Si le même titre est cliqué, basculer le trigger pour forcer le re-fetch
+                setTriggerFetch(!triggerFetch);
+            } else {
+                setProjectTitle(card.title); // Définir le titre qui déclenchera l'appel API
+            }
+        }
     };
-
     const getImagePath = (filename) => {
         if (!filename) return '';
         return require(`../assets/covers/${filename}`);
