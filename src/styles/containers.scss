@@ -111,6 +111,10 @@
             li:hover {
                 background-color: black;
                 color: white; 
+                @media (prefers-color-scheme: dark) {
+                    background-color: white;
+                    color: black;
+                }
             }
 
             &-job{
