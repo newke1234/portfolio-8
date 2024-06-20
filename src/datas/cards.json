@@ -204,10 +204,10 @@
     },
     {
         "id": "20",
-        "type": "letter",
+        "type": "techno",
         "title": "O",
         "subtitle": "",
-        "cover": "",
+        "cover": "react.webp",
         "pictures": "",
         "description": ""
     },
@@ -216,25 +216,25 @@
         "type": "",
         "title": "",
         "subtitle": "",
-        "cover": "",
+        "cover": "dolibarr.webp",
         "pictures": "",
         "description": ""
     },
     {
         "id": "22",
-        "type": "",
+        "type": "techno",
         "title": "",
         "subtitle": "",
-        "cover": "",
+        "cover": "css3.webp",
         "pictures": "",
         "description": ""
     },
     {
         "id": "23",
-        "type": "",
+        "type": "techno",
         "title": "",
         "subtitle": "",
-        "cover": "",
+        "cover": "javascript.webp",
         "pictures": "",
         "description": ""
     },
@@ -285,10 +285,10 @@
     },
     {
         "id": "29",
-        "type": "",
+        "type": "techno",
         "title": "",
         "subtitle": "",
-        "cover": "",
+        "cover": "node.webp",
         "pictures": "",
         "description": ""
     },
