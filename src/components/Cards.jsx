@@ -54,7 +54,7 @@ function Cards({ setProjectDetails, modalOpen }) { // Receive modalOpen prop
                     {card.type === 'letter' && (
                         <p className="cards__letter">{card.title}</p>
                     )}
-                    {card.type === 'lang' && (
+                    {card.type === 'techno' && (
                         <img src={getImagePath(card.cover)} alt={card.title} />
                     )}
                 </li>
