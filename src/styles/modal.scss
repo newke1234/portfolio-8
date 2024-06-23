@@ -79,14 +79,21 @@
         position: absolute;
         top: 10px;
         right: 10px;
-        border: none;
-        background: transparent;
+        border: solid 1px #aaa;
+        background: #333;
         cursor: pointer;
         font-size: 24px;
+         font-weight: bold;
         line-height: 1;
-        padding: 0;
+        padding: 2px;
         color: #aaa;
+        @media screen and (max-width: 600px){
+            position: fixed;
+            top: 20px;
+            right: 22px;
+            font-size: 20px;
 
+        }
         &:hover {
             color: #f00;
         }

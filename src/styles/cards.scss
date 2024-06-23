@@ -97,11 +97,10 @@
 .hiddenCard {
     width: 80px;
     height: 80px;
-    display: flex;            /* Active Flexbox pour le conteneur */
-    flex-direction: column;   /* Organise les enfants en colonne */
+    display: flex;            
+    flex-direction: column;   
     justify-content: center;
-    align-items: center;      /* Centre le contenu horizontalement */
-    font-size: 100px;
+    align-items: center;      
 
     @media (max-width: 600px) {
         display: none;

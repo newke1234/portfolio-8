@@ -39,17 +39,13 @@
         &-title {
             display: flex;
             align-items: left;
-
             width: 580px;
-
         }
     }
     &__middle {
         display: flex;
         flex-direction: row;
-        // flex: 1 0 calc(100% / 6); // Each card can grow and shrink, and its base size is 1/6 of the container width
-        // max-width: calc(100% / 6); // Each card will not exceed 1/6 of the container width
-        
+       
         @media (max-width: 600px) {
             width: 100%;
             margin: 0 20px;
@@ -71,7 +67,6 @@
         align-items: flex-start;
         @media (max-width: 600px) {
             flex-direction: column;
-
             margin: auto;
             margin-top: 10px;
         }
