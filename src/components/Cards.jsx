@@ -3,23 +3,33 @@ import axios from 'axios';
 import cardsData from '../datas/cards.json';
 import '../styles/cards.scss';
 
-function Cards({ setProjectDetails, modalOpen }) { // Receive modalOpen prop
+/**
+ * Renders a list of cards representing projects, letters, and technologies.
+ * @param {Object} props - The component props.
+ * @param {Function} props.setProjectDetails - A function to set the project details.
+ * @param {boolean} props.modalOpen - A boolean indicating whether the modal is open.
+ * @returns {JSX.Element} The rendered Cards component.
+ */
+function Cards({ setProjectDetails, modalOpen }) {
     const [jsonData] = useState(cardsData);
     const [projectTitle, setProjectTitle] = useState('');
-    const [triggerFetch, setTriggerFetch] = useState(false); // Ajout d'un trigger pour les fetchs
+    const [triggerFetch, setTriggerFetch] = useState(false);
 
     useEffect(() => {
-        if (!projectTitle) return;  // Ne rien faire si aucun titre de projet n'est sélectionné
+        if (!projectTitle) return;
 
+        /**
+         * Fetches project data from the API based on the selected project title.
+         * @returns {void}
+         */
         const fetchData = async () => {
             const apiURL = `${process.env.REACT_APP_BASEURL}${process.env.REACT_APP_URLAPI}projects?sqlfilters=title:=:'${projectTitle}'`;
             try {
                 const response = await axios.get(apiURL, {
-                    headers: { "DOLAPIKEY": process.env.REACT_APP_DOLAPIKEY
-                     }
+                    headers: { "DOLAPIKEY": process.env.REACT_APP_DOLAPIKEY }
                 });
                 if (response.data && response.data.length > 0) {
-                    setProjectDetails(response.data[0]);  // Assumer que le premier résultat est le bon
+                    setProjectDetails(response.data[0]);
                 }
             } catch (error) {
                 console.error("Error fetching data: ", error);
@@ -27,18 +37,28 @@ function Cards({ setProjectDetails, modalOpen }) { // Receive modalOpen prop
         };
 
         fetchData();
-    }, [projectTitle, triggerFetch]); // Ajout de triggerFetch dans les dépendances
+    }, [projectTitle, triggerFetch]);
 
+    /**
+     * Handles the click event on a card.
+     * @param {Object} card - The clicked card object.
+     * @returns {void}
+     */
     const handleCardClick = card => {
         if (card.type === "project") {
             if (projectTitle === card.title) {
-                // Si le même titre est cliqué, basculer le trigger pour forcer le re-fetch
                 setTriggerFetch(!triggerFetch);
             } else {
-                setProjectTitle(card.title); // Définir le titre qui déclenchera l'appel API
+                setProjectTitle(card.title);
             }
         }
     };
+
+    /**
+     * Gets the image path for a given filename.
+     * @param {string} filename - The filename of the image.
+     * @returns {string} The image path.
+     */
     const getImagePath = (filename) => {
         if (!filename) return '';
         return require(`../assets/covers/${filename}`);
@@ -55,6 +75,9 @@ function Cards({ setProjectDetails, modalOpen }) { // Receive modalOpen prop
                         <p className="cards__letter">{card.title}</p>
                     )}
                     {card.type === 'techno' && (
+                        <img src={getImagePath(card.cover)} alt={card.title} />
+                    )}
+                    {card.type === 'myhead' && (
                         <img src={getImagePath(card.cover)} alt={card.title} />
                     )}
                 </li>

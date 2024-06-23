@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import '../styles/contact.scss';
 
+/**
+ * Contact component for displaying a contact form and handling form submission.
+ *
+ * @component
+ * @returns {JSX.Element} Contact component
+ */
 const Contact = () => {
     const [formData, setFormData] = useState({
         email: '',
@@ -9,10 +15,20 @@ const Contact = () => {
         message: ''
     });
 
+    /**
+     * Handles the change event of the form inputs and updates the form data state.
+     *
+     * @param {Object} e - The event object
+     */
     const handleChange = e => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
+    /**
+     * Handles the form submission event and sends a POST request to create a ticket.
+     *
+     * @param {Object} e - The event object
+     */
     const handleSubmit = async e => {
         e.preventDefault();
     
@@ -45,6 +61,7 @@ const Contact = () => {
             console.error('Error while creating ticket', error);
         }
     };
+
     return (
         <div className="formpage">
             <h2>Contactez-moi</h2>

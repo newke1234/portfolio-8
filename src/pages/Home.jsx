@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import Cards from '../components/Cards';
 import Description from '../components/Description';
-import HiddenCard from '../components/HiddenCard';
 import Bio from '../components/Bio';  // Import Bio component
 import Contact from '../components/Contact';  // Import Contact component
 import '../styles/containers.scss';
@@ -11,6 +10,10 @@ import '../styles/description.scss';
 
 Modal.setAppElement('#root'); // Ensure this matches your app structure
 
+/**
+ * Home component.
+ * Renders the home page of the portfolio.
+ */
 function Home() {
     const [projectDetails, setProjectDetails] = useState({
         title: "", subtitle: "", description: "", pictures: [], tech: ""
@@ -18,12 +21,25 @@ function Home() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [modalContent, setModalContent] = useState('');
 
+    /**
+     * Opens the modal with the specified content.
+     * @param {string} content - The content to be displayed in the modal ('bio', 'contact', or 'project').
+     */
     const openModal = (content) => {
-        setModalContent(content); // 'bio', 'contact', or 'project'
+        setModalContent(content);
         setModalIsOpen(true);
     };
+
+    /**
+     * Closes the modal.
+     */
     const closeModal = () => setModalIsOpen(false);
 
+    /**
+     * Handles the click event on a project card.
+     * Sets the project details and opens the modal with the project content.
+     * @param {object} details - The details of the project.
+     */
     const handleProjectClick = (details) => {
         setProjectDetails(details);
         openModal('project');
@@ -32,9 +48,7 @@ function Home() {
     return (
         <div className='container'>
             <div className='container__head'>
-                {/* <HiddenCard /> */}
                 <h1 className='container__head-title'>Nicolas Richelet</h1>
-                {/* <HiddenCard /> */}
             </div>
             <div className="container__middle">
                 <Cards setProjectDetails={handleProjectClick} modalOpen={modalIsOpen} />
@@ -51,7 +65,6 @@ function Home() {
                 </Modal>
             </div>
             <div className='container__down'>
-                {/* <HiddenCard /> */}
                 <div className='container__down-main'>
                     <ul>
                         <li onClick={() => openModal('bio')}>01.bio</li>
@@ -70,7 +83,6 @@ function Home() {
                     {modalContent === 'bio' ? <Bio /> : <Contact />}
                     <button onClick={closeModal} className="close-button">X</button>
                 </Modal>
-                {/* <HiddenCard /> */}
             </div>
         </div>
     );
