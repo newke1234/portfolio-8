@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from "react-helmet";
 import Modal from 'react-modal';
 import Cards from '../components/Cards';
 import Description from '../components/Description';
@@ -46,44 +47,53 @@ function Home() {
     };
 
     return (
-        <div className='container'>
-            <div className='container__head'>
-                <h1 className='container__head-title'>Nicolas Richelet</h1>
-            </div>
-            <div className="container__middle">
-                <Cards setProjectDetails={handleProjectClick} modalOpen={modalIsOpen} />
-                <Modal
-                    isOpen={modalIsOpen && modalContent === 'project'}
-                    onRequestClose={closeModal}
-                    className="modalcontent"
-                    overlayClassName="ReactModal__Overlay"
-                    contentLabel="Project Details"
-                    closeTimeoutMS={200}
-                >
-                    <Description details={projectDetails} />
-                    <button onClick={closeModal} className="close-button">X</button>
-                </Modal>
-            </div>
-            <div className='container__down'>
-                <div className='container__down-main'>
-                    <ul>
-                        <li onClick={() => openModal('bio')}>01.bio</li>
-                        <li onClick={() => openModal('contact')}>02.contact</li>
-                    </ul>
-                    <div className='container__down-main-job'>Développeur d'Applications Web</div>
-                </div>
-                <Modal
-                    isOpen={modalIsOpen && (modalContent === 'bio' || modalContent === 'contact')}
-                    onRequestClose={closeModal}
-                    className="modalcontent modalcontent__biocontact"
-                    overlayClassName="ReactModal__Overlay"
-                    contentLabel={modalContent === 'bio' ? 'Bio' : 'Contact'}
-                    closeTimeoutMS={200}
-                >
-                    {modalContent === 'bio' ? <Bio /> : <Contact />}
-                    <button onClick={closeModal} className="close-button">X</button>
-                </Modal>
-            </div>
+        <div>
+
+            <Helmet>
+            <title>Nicolas Richelet - Portfolio</title>
+            <meta name="description" content="Portfolio de Nicolas Richelet, développeur d'applications web." />
+            <meta name="keywords" content="developpeur, Nicolas Richelet, developpeur d'applications, developpeur web, front-end, developpeur javascript, developpeur react, protfolio"/>
+            </ Helmet >
+        
+            <main className='container'>
+                <section className='container__head'>
+                    <h1 className='container__head-title'>Nicolas Richelet</h1>
+                </section>
+                <section className="container__middle">
+                    <Cards setProjectDetails={handleProjectClick} modalOpen={modalIsOpen} />
+                    <Modal
+                        isOpen={modalIsOpen && modalContent === 'project'}
+                        onRequestClose={closeModal}
+                        className="modalcontent"
+                        overlayClassName="ReactModal__Overlay"
+                        contentLabel="Project Details"
+                        closeTimeoutMS={200}
+                    >
+                        <Description details={projectDetails} />
+                        <button onClick={closeModal} className="close-button">X</button>
+                    </Modal>
+                </section>
+                <section className='container__down'>
+                    <nav className='container__down-main'>
+                        <ul>
+                            <li onClick={() => openModal('bio')}>01.bio</li>
+                            <li onClick={() => openModal('contact')}>02.contact</li>
+                        </ul>
+                        <div className='container__down-main-job'>Développeur d'Applications Web</div>
+                    </nav>
+                    <Modal
+                        isOpen={modalIsOpen && (modalContent === 'bio' || modalContent === 'contact')}
+                        onRequestClose={closeModal}
+                        className="modalcontent modalcontent__biocontact"
+                        overlayClassName="ReactModal__Overlay"
+                        contentLabel={modalContent === 'bio' ? 'Bio' : 'Contact'}
+                        closeTimeoutMS={200}
+                    >
+                        {modalContent === 'bio' ? <Bio /> : <Contact />}
+                        <button onClick={closeModal} className="close-button">X</button>
+                    </Modal>
+                </section>
+            </main>
         </div>
     );
 }
