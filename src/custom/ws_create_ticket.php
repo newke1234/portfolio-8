@@ -60,7 +60,7 @@ if ($action == 'create_ticket') {
 		array_push($object_t->errors, $langs->trans("ErrorFieldRequired", $langs->transnoentities("message")));
 		echo "Erreur : ".$langs->trans("ErrorFieldRequired", $langs->transnoentities("message"));
 		$action = '';
-	}elseif (strlen(GETPOST("message", "restricthtml")) < 16) {
+	}elseif (strlen(GETPOST("message", "restricthtml")) < 6) {
 		$error++;
 		array_push($object_t->errors, $langs->trans("ErrorMessagePasPrecis", $langs->transnoentities("message")));
 		echo "Erreur : ".$langs->trans("ErrorMessagePasPrecis");
